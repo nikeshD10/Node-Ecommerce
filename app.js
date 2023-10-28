@@ -15,6 +15,7 @@ const shopController = require("./controllers/shop");
 const isAuth = require("./middleware/is-auth");
 const User = require("./models/user");
 const { v4: uuidv4 } = require("uuid");
+require("dotenv").config();
 
 const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@project0.lyxhh8a.mongodb.net/${process.env.MONGODB_DB_NAME}`;
 
