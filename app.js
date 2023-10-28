@@ -18,7 +18,7 @@ const isAuth = require("./middleware/is-auth");
 const User = require("./models/user");
 const { v4: uuidv4 } = require("uuid");
 
-const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@project0.lyxhh8a.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
+const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@project0.lyxhh8a.mongodb.net/${process.env.MONGODB_DB_NAME}`;
 
 const app = express();
 const store = new MongoDBStore({
