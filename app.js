@@ -8,7 +8,6 @@ const csrf = require("csurf");
 const flash = require("connect-flash");
 const multer = require("multer");
 require("dotenv").config();
-
 const errorController = require("./controllers/error");
 const User = require("./models/user");
 
@@ -74,11 +73,13 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   // throw new Error('Sync Dummy');
   if (!req.session.user) {
+    // req.user = null; // or req.user = {}; depending on your preference
     return next();
   }
   User.findById(req.session.user._id)
     .then((user) => {
       if (!user) {
+        // req.user = user || null; // Set to null if user is not found
         return next();
       }
       req.user = user;
